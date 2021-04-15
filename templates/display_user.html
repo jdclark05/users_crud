@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Read (One)</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style_userdis.css') }}">
+</head>
+<body>
+    <div class="userHeader">
+        <h1>User Information</h1>
+        <a href="/">Home</a>
+        <a href="/add_user"> Add New User</a>
+    </div>
+    <div class="container">
+        <div class="col-md-4">
+            <div class="card profile-card-3">
+                <div class="background-block">
+                    <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="profile-sample1" class="background"/>
+                </div>
+                {% for user in users %}
+                <div class="card-content">
+                    <h2>User Name: <br> {{user['first_name']}} {{user['last_name']}}<small>Email: {{user['email']}}</small></h3>
+                    <div class="icon-block">
+                        <h5><small>Created At: {{user['created_at'].strftime('%b-%d-%Y %H:%M%:%S')}}</small></h5>
+                        <h5><small>Updated At: {{user['updated_at'].strftime('%b-%d-%Y %H:%M%:%S')}}</small></h5>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

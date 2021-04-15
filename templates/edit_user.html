@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Edit User</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style_edit.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h3 class="panel-title">EDIT USER # {{user['id']}} <small><a href="/"> Home </a></small></h3>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form action="edit_user" method="GET" method="POST" role="form">
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			                            <input type="text" class="form-control input-sm floatlabel" placeholder="{{user['first_name']}}" name="first_name" value="{{user['first_name']}}">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="{{user['last_name']}}" value="{{user['last_name']}}"">
+			    					</div>
+			    				</div>
+			    			</div>
+
+			    			<div class="form-group">
+			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="{{user['email']}}" value="{{user['email']}}">
+			    			</div>
+			    			<input type="submit" value="update_user" class="btn btn-info btn-block">
+			    		</form>
+			    	</div>
+	    		</div>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>
